@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Hunter Johnstone' }],
   creator: 'Hunter Johnstone',
   icons: {
-    icon: '/favicon.ico',
+    icon: '/favicon.svg',
   },
   openGraph: {
     title: 'Hunter Johnstone — Software Engineer & Product Consultant',
