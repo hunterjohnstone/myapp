@@ -8,18 +8,74 @@ export const translations = {
       { href: '#contact', label: 'Contact' },
     ],
     hero: {
-      badge: 'Early-stage founders & product teams · Seed—Series B',
-      title: 'Building software for people. Fast.',
+      title: 'I build software for people - fast.',
       subtitle:
-        'I design and ship web & mobile apps, internal tools, and automations that real users adopt.',
+        'I design and ship web & mobile apps, internal tools, and automations that people actually use.',
       supporting: 'Hands-on across product strategy, design, and engineering.',
       chips: ['Web & mobile apps', 'Internal tools', 'Automations', 'Scalable APIs'],
       highlights: [
-        { label: 'Who', value: 'Early-stage founders & product teams' },
-        { label: 'Speed', value: 'Launch-ready in weeks' },
+        { label: 'Who', value: 'Founders, business owners, and product teams' },
+        { label: 'Speed', value: 'Launch in weeks, not quarters' },
         { label: 'How', value: 'Direct, transparent, outcome-first' },
       ],
-      note: 'Prefer to talk? Call or WhatsApp me at',
+    },
+    proof: {
+      heading: 'Recent results',
+      subheading: 'Outcomes from recent re-design.',
+      items: [
+        {
+          title: 'Clinic appointment site',
+          detail: 'Patients book online; front desk saves ~10 hours/week.',
+          meta: 'Design + build · 3 weeks',
+          href: 'https://example.com', // optional
+        },
+        {
+          title: 'Distributor order portal',
+          detail: 'Phone/email orders replaced with a web app; 120+ orders/day online.',
+          meta: 'Next.js · Postgres · 6 weeks',
+          href: 'https://example.com', // optional
+        },
+        {
+          title: 'Finance dashboard (internal)',
+          detail: 'Monthly reports generated in seconds—no spreadsheets.',
+          meta: 'Node · Internal tool · 4 weeks',
+          href: 'https://example.com', // optional
+        },
+      ],
+      demo: {
+        title: 'Before/after product demo',
+        description: 'A recent redesign highlights the jump from the legacy experience to the shipped build.',
+        beforeLabel: 'Before',
+        afterLabel: 'After',
+        statsTitle: 'Impact snapshot',
+        statsDescription: 'Key metrics from this launch span traffic, conversion, build speed, pricing, and UX polish.',
+      },
+      stats: [
+        {
+          value: '4x',
+          label: 'More visitors now discover the site via Google after the SEO rollout.',
+        },
+        {
+          value: '2x',
+          label: 'Higher conversion rate from a visit to a contact enquiry.',
+        },
+        {
+          value: '2 weeks',
+          label: 'From kickoff to production launch for the full build.',
+        },
+        {
+          value: '$500',
+          label: 'Flat project fee (or $30/month on a payment plan).',
+        },
+        {
+          value: 'Modern UX',
+          label: 'Interface crafted with contemporary UX best practices and professional polish.',
+        },
+        {
+          value: 'Managed hosting',
+          label: 'Custom-configured hosting for speed, SEO, analytics—or handoff to your own stack.',
+        },
+      ],
     },
     services: {
       heading: 'Services tuned for outcomes',
@@ -46,6 +102,48 @@ export const translations = {
       heading: 'Live product previews',
       subheading: 'A quick look at recently shipped experiences.',
       note: 'If a live preview fails to load (some sites block embeds), use the “Open site” button for the full experience.',
+      items: [
+        {
+          name: 'Victorian Clinical Genetics Services (VCGS)',
+          description:
+            'Embedded with partner teams to ship compliant, accessible patient tools for a major Australian government body.',
+          type: 'Web platform',
+          url: 'https://www.vcgs.org.au/',
+          preview: '/vcgs.png',
+        },
+        {
+          name: 'Embassy Alerts',
+          description:
+            'Automation core that monitors embassy calendars and pings teams the moment new visa appointments drop.',
+          type: 'Automation platform',
+          url: 'https://www.embassyalerts.com/',
+          preview: '/embassy.png',
+        },
+        {
+          name: 'SpanishOffers',
+          description:
+            'Full-stack marketplace with CMS merchandising, payments, and daily offers for the Spanish-speaking community.',
+          type: 'Web marketplace',
+          url: 'https://spanishoffers.com/',
+          preview: '/offers.png',
+        },
+        {
+          name: 'Granite Hill Capital',
+          description:
+            'Responsive corporate site with tailored storytelling and secure LP resources for an Australian real-estate partnership.',
+          type: 'Corporate website',
+          url: 'https://www.granitehillcapital.com.au/',
+          preview: '/granite.png',
+        },
+        {
+          name: 'Mova — Made to Move',
+          description:
+            'Mobile app integrating workouts, subscriptions, and content delivery; I led the cross-platform engineering effort.',
+          type: 'Mobile app',
+          url: 'https://mova.madetomove.co.za/',
+          preview: '/mova.png',
+        },
+      ],
     },
     approach: {
       heading: 'Approach',
@@ -100,37 +198,74 @@ export const translations = {
       { href: '#contact', label: 'Contacto' },
     ],
     hero: {
-      badge: 'Fundadores y equipos Seed–Serie B',
-      title: 'Construye software centrado en las personas, rápido.',
+      title: 'Construyo software centrado en las personas — rápido.',
       subtitle:
-        'Diseño y lanzo apps web y móviles, herramientas internas y automatizaciones que la gente realmente adopta.',
+        'Diseño y lanzo apps web y móviles, herramientas internas y automatizaciones que la gente realmente usa.',
       supporting: 'Acompañamiento práctico en estrategia de producto, diseño e ingeniería.',
       chips: ['Apps web y móviles', 'Herramientas internas', 'Automatizaciones', 'APIs escalables'],
       highlights: [
-        { label: 'Quiénes', value: 'Fundadores y equipos Seed–Serie B' },
-        { label: 'Velocidad', value: 'Listo para lanzar en semanas' },
-        { label: 'Cómo', value: 'Directo, transparente y enfocado en resultados' },
+        { label: 'Quiénes', value: 'Fundadores, propietarios y equipos de producto' },
+        { label: 'Velocidad', value: 'Lanzamiento en semanas, no en trimestres' },
+        { label: 'Cómo', value: 'Directo, transparente y orientado a resultados' },
       ],
-      note: '¿Prefieres hablar? Llámame o envía un WhatsApp al',
     },
     proof: {
-      heading: 'Pruebas, no promesas',
-      caption: 'Resultados recientes',
-      metrics: [
+      heading: 'Resultados recientes',
+      subheading: 'Resultados de proyectos recientes.',
+      items: [
         {
-          stat: '38% menos tiempo de onboarding',
-          detail: 'Activación SaaS renovada — Next.js · Segment',
+          title: 'Sitio de turnos para clínica',
+          detail: 'Los pacientes reservan online; recepción ahorra ~10 h/semana.',
+          meta: 'Diseño + desarrollo · 3 semanas',
+          href: 'https://example.com', // optional
         },
         {
-          stat: 'Lanzamiento v1 en 5 semanas',
-          detail: 'MVP fintech de idea a ingresos — React · Supabase',
+          title: 'Portal de pedidos para distribuidora',
+          detail: 'Pedidos por teléfono/correo → app web; 120+ pedidos/día online.',
+          meta: 'Next.js · Postgres · 6 semanas',
+          href: 'https://example.com', // optional
         },
         {
-          stat: '52% menos tickets de soporte',
-          detail: 'Nueva herramienta interna — Node.js · Retool',
+          title: 'Dashboard financiero (interno)',
+          detail: 'Reportes mensuales en segundos—sin hojas de cálculo.',
+          meta: 'Node · Herramienta interna · 4 semanas',
+          href: 'https://example.com', // optional
         },
       ],
-      clients: 'Equipos de fintech, salud y marketplaces confían en el proceso.',
+      demo: {
+        title: 'Demostración de antes y después',
+        description: 'Un rediseño reciente muestra el salto del sitio heredado a la versión final.',
+        beforeLabel: 'Antes',
+        afterLabel: 'Después',
+        statsTitle: 'Impacto en cifras',
+        statsDescription: 'Las métricas clave abarcan tráfico, conversión, velocidad de entrega, precio y calidad UX.',
+      },
+      stats: [
+        {
+          value: '4x',
+          label: 'Más visitantes encuentran el sitio en Google tras la optimización SEO.',
+        },
+        {
+          value: '2x',
+          label: 'Mayor tasa de visitas que terminan en una consulta del cliente.',
+        },
+        {
+          value: '2 semanas',
+          label: 'Desde el inicio hasta el lanzamiento en producción.',
+        },
+        {
+          value: '$500',
+          label: 'Tarifa fija del proyecto (o $30/mes en plan de pago).',
+        },
+        {
+          value: 'UX moderna',
+          label: 'Interfaz diseñada con las mejores prácticas UX actuales y un acabado profesional.',
+        },
+        {
+          value: 'Hosting gestionado',
+          label: 'Alojamiento con configuración personalizada para velocidad, SEO y analítica, o integración con tu infraestructura.',
+        },
+      ],
     },
     services: {
       heading: 'Servicios enfocados en resultados',
@@ -178,6 +313,48 @@ export const translations = {
       heading: 'Productos en vivo',
       subheading: 'Una mirada rápida a experiencias lanzadas recientemente.',
       note: 'Si la vista previa no carga (algunos sitios bloquean iframes), usa el botón “Abrir sitio” para verlo completo.',
+      items: [
+        {
+          name: 'Victorian Clinical Genetics Services (VCGS)',
+          description:
+            'Trabajé con equipos asociados para lanzar herramientas accesibles y seguras para pacientes del gobierno australiano.',
+          type: 'Plataforma web',
+          url: 'https://www.vcgs.org.au/',
+          preview: '/vcgs.png',
+        },
+        {
+          name: 'Embassy Alerts',
+          description:
+            'Núcleo de automatización que vigila calendarios de embajadas y avisa al equipo apenas aparecen nuevas citas.',
+          type: 'Plataforma de automatización',
+          url: 'https://www.embassyalerts.com/',
+          preview: '/embassy.png',
+        },
+        {
+          name: 'SpanishOffers',
+          description:
+            'Marketplace full-stack con CMS, pagos y ofertas diarias para la comunidad hispanohablante.',
+          type: 'Marketplace web',
+          url: 'https://spanishoffers.com/',
+          preview: '/offers.png',
+        },
+        {
+          name: 'Granite Hill Capital',
+          description:
+            'Sitio corporativo responsivo con narrativa a medida y recursos seguros para socios inmobiliarios en Australia.',
+          type: 'Sitio corporativo',
+          url: 'https://www.granitehillcapital.com.au/',
+          preview: '/granite.png',
+        },
+        {
+          name: 'Mova — Made to Move',
+          description:
+            'App móvil con entrenamientos, suscripciones y contenido; lideré la ingeniería multiplataforma.',
+          type: 'Aplicación móvil',
+          url: 'https://mova.madetomove.co.za/',
+          preview: '/mova.png',
+        },
+      ],
     },
     approach: {
       heading: 'Método',
@@ -229,120 +406,3 @@ export const translations = {
 
 export type Locale = keyof typeof translations
 export type Translation = (typeof translations)[Locale]
-
-type LocalizedText = {
-  en: string
-  es: string
-}
-
-type ProjectPreview = {
-  name: LocalizedText
-  description: LocalizedText
-  type: LocalizedText
-  role: LocalizedText
-  url: string
-  preview: string
-}
-
-export const projectPreviews: ProjectPreview[] = [
-  {
-    name: {
-      en: 'Victorian Clinical Genetics Services (VCGS)',
-      es: 'Victorian Clinical Genetics Services (VCGS)',
-    },
-    description: {
-      en: 'Embedded with partner teams to ship compliant, accessible patient tools for a major Australian government body.',
-      es: 'Trabajé con equipos asociados para lanzar herramientas accesibles y seguras para pacientes del gobierno australiano.',
-    },
-    type: {
-      en: 'Web platform',
-      es: 'Plataforma web',
-    },
-    role: {
-      en: 'Senior engineer (partner team)',
-      es: 'Ingeniero senior (equipo aliado)',
-    },
-    url: 'https://www.vcgs.org.au/',
-    preview: '/vcgs.png',
-  },
-  {
-    name: {
-      en: 'Embassy Alerts',
-      es: 'Embassy Alerts',
-    },
-    description: {
-      en: 'Automation core that monitors embassy calendars and pings teams the moment new visa appointments drop.',
-      es: 'Núcleo de automatización que vigila calendarios de embajadas y avisa al equipo apenas aparecen nuevas citas.',
-    },
-    type: {
-      en: 'Automation platform',
-      es: 'Plataforma de automatización',
-    },
-    role: {
-      en: 'Lead product engineer',
-      es: 'Ingeniero principal de producto',
-    },
-    url: 'https://www.embassyalerts.com/',
-    preview: '/embassy.png',
-  },
-  {
-    name: {
-      en: 'SpanishOffers',
-      es: 'SpanishOffers',
-    },
-    description: {
-      en: 'Full-stack marketplace with CMS merchandising, payments, and daily offers for the Spanish-speaking community.',
-      es: 'Marketplace full-stack con CMS, pagos y ofertas diarias para la comunidad hispanohablante.',
-    },
-    type: {
-      en: 'Web marketplace',
-      es: 'Marketplace web',
-    },
-    role: {
-      en: 'Lead product engineer',
-      es: 'Ingeniero principal de producto',
-    },
-    url: 'https://spanishoffers.com/',
-    preview: '/offers.png',
-  },
-  {
-    name: {
-      en: 'Granite Hill Capital',
-      es: 'Granite Hill Capital',
-    },
-    description: {
-      en: 'Responsive corporate site with tailored storytelling and secure LP resources for an Australian real-estate partnership.',
-      es: 'Sitio corporativo responsivo con narrativa a medida y recursos seguros para socios inmobiliarios en Australia.',
-    },
-    type: {
-      en: 'Corporate website',
-      es: 'Sitio corporativo',
-    },
-    role: {
-      en: 'Consultant & engineer',
-      es: 'Consultor e ingeniero',
-    },
-    url: 'https://www.granitehillcapital.com.au/',
-    preview: '/granite.png',
-  },
-  {
-    name: {
-      en: 'Mova — Made to Move',
-      es: 'Mova — Made to Move',
-    },
-    description: {
-      en: 'Mobile app integrating workouts, subscriptions, and content delivery; I led the cross-platform engineering effort.',
-      es: 'App móvil con entrenamientos, suscripciones y contenido; lideré la ingeniería multiplataforma.',
-    },
-    type: {
-      en: 'Mobile app',
-      es: 'Aplicación móvil',
-    },
-    role: {
-      en: 'Tech lead',
-      es: 'Tech lead',
-    },
-    url: 'https://mova.madetomove.co.za/',
-      preview: '/mova.png',
-  }
-]
