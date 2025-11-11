@@ -101,7 +101,6 @@ export const translations = {
     projects: {
       heading: 'Live product previews',
       subheading: 'A quick look at recently shipped experiences.',
-      note: 'If a live preview fails to load (some sites block embeds), use the “Open site” button for the full experience.',
       items: [
         {
           name: 'Victorian Clinical Genetics Services (VCGS)',
@@ -174,14 +173,6 @@ export const translations = {
       email: 'Email',
       whatsapp: 'Chat on WhatsApp',
       phone: 'Call',
-    },
-    previews: {
-      heading: 'Social sharing previews',
-      subheading: 'See how the site appears when it is shared.',
-      assets: [
-        { label: 'Open Graph image', context: 'LinkedIn, Slack, iMessage' },
-        { label: 'Twitter / X image', context: 'Twitter · WhatsApp' },
-      ],
     },
     localeSwitch: {
       label: 'Language',
@@ -288,27 +279,6 @@ export const translations = {
         },
       ],
     },
-    work: {
-      heading: 'Casos destacados',
-      subheading: 'Historias recientes (datos anonimizados).',
-      cases: [
-        {
-          problem: 'El onboarding se detenía en el paso cuatro.',
-          result: 'Reducimos el time-to-value 38%.',
-          stack: 'Next.js · Stripe · Segment',
-        },
-        {
-          problem: 'Idea fintech sin validación.',
-          result: 'Lanzamos v1 en 5 semanas.',
-          stack: 'React · Supabase · Plaid',
-        },
-        {
-          problem: 'Soporte saturado y sin visibilidad.',
-          result: 'Disminuimos tickets 52%.',
-          stack: 'Node.js · Retool · Postgres',
-        },
-      ],
-    },
     projects: {
       heading: 'Productos en vivo',
       subheading: 'Una mirada rápida a experiencias lanzadas recientemente.',
@@ -386,14 +356,6 @@ export const translations = {
       email: 'Enviar correo',
       whatsapp: 'Chatear en WhatsApp',
       phone: 'Llamar',
-    },
-    previews: {
-      heading: 'Vistas previas para redes',
-      subheading: 'Así se comparte el sitio en redes sociales.',
-      assets: [
-        { label: 'Imagen Open Graph', context: 'LinkedIn, Slack, iMessage' },
-        { label: 'Imagen para Twitter/X', context: 'Twitter · WhatsApp' },
-      ],
     },
     localeSwitch: {
       label: 'Idioma',

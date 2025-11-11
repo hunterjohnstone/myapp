@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import './globals.css'
+// import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hunterjohnstone.dev'),
+  metadataBase: new URL('https://hunterjohnstone.com'),
   title: {
     default: 'Hunter Johnstone — Software Engineer & Product Consultant',
     template: '%s | Hunter Johnstone',
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: 'Hunter Johnstone — Software Engineer & Product Consultant',
     description:
       'Full-stack consultant crafting fast, resilient products for ambitious teams.',
-    url: 'https://hunterjohnstone.dev',
+    url: 'https://hunterjohnstone.come',
     siteName: 'Hunter Johnstone',
     type: 'website',
     locale: 'en_US',
