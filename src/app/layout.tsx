@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: 'Hunter Johnstone — Software Engineer & Product Consultant',
     description:
       'Full-stack consultant crafting fast, resilient products for ambitious teams.',
-    url: 'https://hunterjohnstone.come',
+    url: 'https://hunterjohnstone.com',
     siteName: 'Hunter Johnstone',
     type: 'website',
     locale: 'en_US',
@@ -65,7 +65,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const lang = 'es'
+  const lang = 'en'
 
   return (
     <html lang={lang}>

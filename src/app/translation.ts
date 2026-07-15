@@ -2,15 +2,13 @@
 export const translations = {
   en: {
     navItems: [
-      { href: '#services', label: 'Services' },
-      { href: '#projects', label: 'Projects' },
-      { href: '#approach', label: 'Approach' },
-      { href: '#contact', label: 'Contact' },
+      { href: '/', label: 'Home' },
+      { href: '/projects', label: 'Projects' },
     ],
     hero: {
-      title: 'I build software for people - fast.',
+      title: 'Web applications, internal tools, automation.',
       subtitle:
-        'I design and ship web & mobile apps, internal tools, and automations that people actually use.',
+        'Get in touch to ship fast, resilient products for your business or team.',
       supporting: 'Hands-on across product strategy, design, and engineering.',
       chips: ['Web & mobile apps', 'Internal tools', 'Automations', 'Scalable APIs'],
       highlights: [
@@ -99,8 +97,8 @@ export const translations = {
       ],
     },
     projects: {
-      heading: 'Live product previews',
-      subheading: 'A quick look at recently shipped experiences.',
+      heading: 'Work',
+      subheading: 'Recently shipped products.',
       items: [
         {
           name: 'Victorian Clinical Genetics Services (VCGS)',
@@ -164,10 +162,10 @@ export const translations = {
     },
     engagement: 'Engagement includes weekly collaborations, fixed-scope sprints, and regular demos for tracking development.',
     contact: {
-      heading: 'Ready to move fast, thoughtfully?',
-      subheading: 'Reach out directly.',
+      heading: 'Reach out directly.',
+      subheading: 'Contact',
       description:
-        'Email, call, or drop a WhatsApp message. Expect a thoughtful reply within one business day.',
+        'Email, call, or WhatsApp — I usually reply within a day.',
     },
     ctas: {
       email: 'Email',
@@ -183,15 +181,13 @@ export const translations = {
   },
   es: {
     navItems: [
-      { href: '#services', label: 'Servicios' },
-      { href: '#projects', label: 'Proyectos' },
-      { href: '#approach', label: 'Método' },
-      { href: '#contact', label: 'Contacto' },
+      { href: '/', label: 'Inicio' },
+      { href: '/projects', label: 'Proyectos' },
     ],
     hero: {
-      title: 'Construyo software centrado en las personas — rápido.',
+      title: 'Construyo software.',
       subtitle:
-        'Diseño y lanzo apps web y móviles, herramientas internas y automatizaciones que la gente realmente usa.',
+        'Apps web y móviles, herramientas internas y automatizaciones.',
       supporting: 'Acompañamiento práctico en estrategia de producto, diseño e ingeniería.',
       chips: ['Apps web y móviles', 'Herramientas internas', 'Automatizaciones', 'APIs escalables'],
       highlights: [
@@ -280,8 +276,8 @@ export const translations = {
       ],
     },
     projects: {
-      heading: 'Productos en vivo',
-      subheading: 'Una mirada rápida a experiencias lanzadas recientemente.',
+      heading: 'Trabajo',
+      subheading: 'Productos lanzados recientemente.',
       note: 'Si la vista previa no carga (algunos sitios bloquean iframes), usa el botón “Abrir sitio” para verlo completo.',
       items: [
         {
@@ -347,10 +343,10 @@ export const translations = {
     engagement:
       'La modalidad de trabajo incluye colaboración semanal, sprints de alcance definido y demostraciones periódicas para el seguimiento del desarrollo.',
     contact: {
-      heading: '¿Listo para avanzar con foco?',
-      subheading: 'Contáctame directamente.',
+      heading: 'Contáctame directamente.',
+      subheading: 'Contacto',
       description:
-        'Escribe, llama o envía un WhatsApp. Respondo dentro de un día hábil.',
+        'Escríbeme, llámame o mándame un WhatsApp — normalmente respondo en un día.',
     },
     ctas: {
       email: 'Enviar correo',
