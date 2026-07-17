@@ -22,7 +22,7 @@ type Props = {
 type ButtonPhase = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8
 
 const introDelayMs = 1200
-const typoTitle = 'Web applications, internal tools, automation.'
+const typoTitle = 'Web applications,\ninternal tools,\nautomation.'
 
 // Module-level so it survives client-side navigation (Home <-> Projects) and
 // language switches. The intro plays once per full page load, not on every mount.
@@ -67,12 +67,12 @@ function buildTitleFrames(title: string) {
     return frames
   }
 
-  let text = typeText(frames, '', 'Web applications, internal toolw, au')
+  let text = typeText(frames, '', 'Web applications,\ninternal toolw,\nau')
 
   // The mistake is allowed to continue for a few characters before it is
   // noticed. Backspaces are intentionally quicker and more evenly spaced.
   const backspaceCadence = [50, 46, 53, 48, 51]
-  Array.from('w, au').forEach((_, index) => {
+  Array.from('w,\nau').forEach((_, index) => {
     text = text.slice(0, -1)
     frames.push({
       delay: index === 0 ? 520 : backspaceCadence[index],
@@ -81,7 +81,7 @@ function buildTitleFrames(title: string) {
   })
 
   frames.push({ delay: 170, text })
-  typeText(frames, text, 's, automation.')
+  typeText(frames, text, 's,\nautomation.')
 
   return frames
 }
@@ -284,9 +284,11 @@ export default function HeroIntro({
 
   const emailTreatmentClass = (() => {
     if (emailButtonPhase >= 5) {
-      return 'border-white bg-white text-[#0b0b0f] hover:bg-white/90'
+      // Settles from the solid-white flash into the finished treatment:
+      // transparent centre, thin white border, white text.
+      return 'border-white bg-transparent text-white transition-[background-color,border-color,color] duration-700 ease-out hover:bg-white/10'
     }
-    if (emailButtonPhase === 4) return 'border-white bg-white/15 text-white'
+    if (emailButtonPhase === 4) return 'border-white bg-white text-[#0b0b0f]'
     if (emailButtonPhase === 3) return 'border-white/30 bg-white/10 text-white'
     if (emailButtonPhase === 2) return 'border-white/55 bg-white/[0.04] text-white'
     return 'border-white/25 bg-transparent text-white'
@@ -308,7 +310,7 @@ export default function HeroIntro({
   return (
     <div className="order-2 flex w-full flex-col items-center gap-6 text-center lg:order-1 lg:flex-1 lg:items-start lg:text-left">
       <h1
-        className="section-heading text-4xl font-semibold leading-[0.95] tracking-tight text-white sm:text-6xl"
+        className="section-heading whitespace-pre-line text-4xl font-semibold leading-[0.95] tracking-tight text-white sm:text-6xl lg:text-[clamp(3rem,4.5vw,4.25rem)]"
         aria-label={title}
       >
         <span className="relative block">
@@ -322,7 +324,10 @@ export default function HeroIntro({
         </span>
       </h1>
 
-      <p className="max-w-xl text-lg text-white/70 sm:text-xl" aria-label={subtitle}>
+      <p
+        className="max-w-xl text-pretty text-lg leading-relaxed text-white/70 sm:text-xl"
+        aria-label={subtitle}
+      >
         <span className="relative block">
           <span className="invisible" aria-hidden="true">
             {subtitle}
@@ -334,7 +339,7 @@ export default function HeroIntro({
         </span>
       </p>
 
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center" aria-label="Contact options">
+      <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center" aria-label="Contact options">
         <a
           href={emailLink}
           className={`${commonButtonClass} ${shapeClass(emailButtonPhase)} ${entranceClass(emailButtonPhase)} ${emailReady ? '' : 'pointer-events-none'} ${emailTreatmentClass}`}
@@ -348,7 +353,7 @@ export default function HeroIntro({
             </span>
             <span className="absolute inset-0 flex items-center justify-center" aria-hidden="true">
               {displayedEmailLabel}
-              {activeCaret === 'email' ? <Caret dark={emailButtonPhase >= 5} /> : null}
+              {activeCaret === 'email' ? <Caret /> : null}
             </span>
           </span>
         </a>

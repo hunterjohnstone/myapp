@@ -6,9 +6,8 @@ export const translations = {
       { href: '/projects', label: 'Projects' },
     ],
     hero: {
-      title: 'Web applications, internal tools, automation.',
-      subtitle:
-        'Get in touch to ship fast, resilient products for your business or team.',
+      title: 'Web applications,\ninternal tools,\nautomation.',
+      subtitle: 'Ship fast, resilient products for your business or team.',
       supporting: 'Hands-on across product strategy, design, and engineering.',
       chips: ['Web & mobile apps', 'Internal tools', 'Automations', 'Scalable APIs'],
       highlights: [

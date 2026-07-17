@@ -2,6 +2,7 @@ import Script from 'next/script'
 import BinaryPortrait from './BinaryPortrait'
 import { SiteFooter, SiteNav } from './Chrome'
 import HeroIntro from './HeroIntro'
+import HeroOrbit from './HeroOrbit'
 import { Locale, Translation, translations } from './translation'
 import {
   EMAIL_DISPLAY,
@@ -67,7 +68,7 @@ export default function Home({ searchParams }: HomeProps) {
         <main
           id="content"
           lang={locale}
-          className="flex flex-1 flex-col justify-start px-6 py-10 sm:px-10 lg:justify-center"
+          className="flex flex-1 flex-col justify-start px-6 py-10 sm:px-10 lg:justify-center lg:py-8"
         >
           <header id="top" className="mx-auto w-full max-w-6xl">
             <div className="flex flex-col items-center gap-8 sm:gap-10 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
@@ -83,8 +84,12 @@ export default function Home({ searchParams }: HomeProps) {
                 whatsappLink={WHATSAPP_LINK}
               />
 
-              <div className="binary-portrait order-1 w-56 shrink-0 self-center sm:w-64 lg:order-2 lg:w-[340px]">
-                <BinaryPortrait src="/portrait.png" />
+              <div className="relative order-1 w-64 shrink-0 self-center sm:w-72 lg:order-2 lg:w-[min(340px,46vh)]">
+                <HeroOrbit>
+                  <div className="binary-portrait w-full">
+                    <BinaryPortrait src="/portrait.png" />
+                  </div>
+                </HeroOrbit>
               </div>
             </div>
           </header>

@@ -26,7 +26,7 @@ export function SiteNav({
   return (
     <div className="px-4 pt-6 sm:px-8">
       <nav
-        className="sticky top-4 z-50 mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full border border-white/12 bg-[#0b0b0f]/90 px-5 py-3 text-sm text-white shadow-xl backdrop-blur-xl"
+        className="sticky top-4 z-50 mx-auto flex max-w-6xl items-center justify-between gap-4 rounded-full border border-white/6 bg-[#0b0b0f]/90 px-5 py-3 text-sm text-white shadow-xl backdrop-blur-xl"
         aria-label="Primary navigation"
       >
         <Link href="/" className="flex items-center gap-2">
@@ -88,8 +88,8 @@ export function SiteNav({
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-white/10 bg-[#0b0b0f] text-white/50">
-      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-6 py-6 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-10">
+    <footer className="border-t border-white/10 bg-[#0b0b0f] px-6 text-white/50 sm:px-10">
+      <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 py-6 text-sm sm:flex-row sm:items-center sm:justify-between">
         <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:gap-4">
           <p>© {new Date().getFullYear()} Hunter Johnstone</p>
           <p className="text-white/35">ABN {ABN_DISPLAY}</p>

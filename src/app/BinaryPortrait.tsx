@@ -2,6 +2,8 @@
 
 import { useEffect, useRef } from 'react'
 
+import { breathState } from './breath'
+
 type Props = {
   /** Source image sampled for luminance. Falls back to a procedural face if it fails to load. */
   src?: string
@@ -128,17 +130,17 @@ export default function BinaryPortrait({
     }
 
     function measure() {
-      const r = wrap.getBoundingClientRect()
-      cssW = Math.max(1, r.width)
-      cssH = Math.max(1, r.height)
+      // Layout box, not getBoundingClientRect: the breathing scale on an
+      // ancestor inflates client rects, and feeding that into the canvas
+      // size would ratchet the wrap taller on every rebuild.
+      cssW = Math.max(1, wrap.offsetWidth)
+      cssH = Math.max(1, wrap.offsetHeight)
     }
 
     function setupCanvas() {
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
       canvas.width = Math.round(cssW * dpr)
       canvas.height = Math.round(cssH * dpr)
-      canvas.style.width = `${cssW}px`
-      canvas.style.height = `${cssH}px`
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
 
@@ -173,14 +175,20 @@ export default function BinaryPortrait({
       }
     }
 
-    const t0 = performance.now()
+    let lastNow = 0
+    let sweepPhase = 0
+    // Set when the canvas bitmap has been wiped (resize) so the next draw
+    // paints even if the visibility pause has stopped the loop.
+    let needsPaint = false
 
     function draw(now: number) {
-      if (!running || !lum || !bits) {
-        raf = requestAnimationFrame(draw)
+      if (!lum || !bits || (!running && !needsPaint)) {
+        if (running) raf = requestAnimationFrame(draw)
         return
       }
-      const t = (now - t0) / 1000
+      needsPaint = false
+      const dt = lastNow ? Math.min(0.1, (now - lastNow) / 1000) : 0
+      lastNow = now
       ctx.clearRect(0, 0, cssW, cssH)
       const cw = cssW / cols
       const ch = cssH / rows
@@ -190,12 +198,22 @@ export default function BinaryPortrait({
       ctx.textBaseline = 'middle'
       ctx.fillStyle = color
 
+      // The stream breathes with the portrait: the transient runs a touch
+      // faster and the digits lift slightly on the inhale.
+      const breath = breathState.value * breathState.strength
+
       // soft light band travelling down the portrait = the transient
-      const sweepY = ((t * 0.13) % 1.5) - 0.25
+      // (accumulated phase so breath-varied speed never jumps)
+      sweepPhase = (sweepPhase + dt * 0.13 * (1 + breath * 0.035)) % 1.5
+      const sweepY = sweepPhase - 0.25
+      const glow = 1 + breath * 0.025
 
       for (let y = 0; y < rows; y++) {
         const ry = y / rows
         const sweep = Math.max(0, 1 - Math.abs(ry - sweepY) * 5.5)
+        // Jaw and cheek rows ease down a fraction of a pixel on the inhale —
+        // breath suggested by rhythm, never by moving the mouth.
+        const lowerEase = breath * 0.45 * smooth(0.55, 0.9, ry)
         for (let x = 0; x < cols; x++) {
           const i = y * cols + x
           const l = lum[i]
@@ -207,12 +225,12 @@ export default function BinaryPortrait({
           const lq = Math.ceil(l * 5) / 5 // posterised opacity
           let alpha = 0.12 + lq * 0.88
           alpha = Math.min(1, alpha + sweep * 0.55 * lq)
-          ctx.globalAlpha = alpha
-          ctx.fillText(bits[i] ? '1' : '0', x * cw + cw / 2, y * ch + ch / 2)
+          ctx.globalAlpha = Math.min(1, alpha * glow)
+          ctx.fillText(bits[i] ? '1' : '0', x * cw + cw / 2, y * ch + ch / 2 + lowerEase)
         }
       }
       ctx.globalAlpha = 1
-      if (reduced) return
+      if (reduced || !running) return
       raf = requestAnimationFrame(draw)
     }
 
@@ -237,9 +255,19 @@ export default function BinaryPortrait({
 
     const ro = new ResizeObserver(() => {
       if (!sample) return
+      const previousW = cssW
+      const previousH = cssH
       measure()
+      // Observers can fire without a real size change; rebuilding then would
+      // wipe the bitmap for nothing (and can feed back into another fire).
+      if (Math.abs(cssW - previousW) < 0.5 && Math.abs(cssH - previousH) < 0.5) return
       setupCanvas()
       buildGrid()
+      // Resetting canvas.width above wipes the bitmap; repaint even when the
+      // reduced-motion or visibility-pause path has stopped the loop.
+      needsPaint = true
+      cancelAnimationFrame(raf)
+      raf = requestAnimationFrame(draw)
     })
     ro.observe(wrap)
 
@@ -251,7 +279,9 @@ export default function BinaryPortrait({
           raf = requestAnimationFrame(draw)
         } else if (!visible && running) {
           running = false
-          cancelAnimationFrame(raf)
+          // Keep any pending frame that owes a repaint after a resize wipe;
+          // it paints once and halts on its own while paused.
+          if (!needsPaint) cancelAnimationFrame(raf)
         }
       },
       { threshold: 0 },
@@ -266,10 +296,13 @@ export default function BinaryPortrait({
       img.onload = null
       img.onerror = null
     }
-  }, [src, cell, color, crop])
+    // Primitive deps: `crop` is often an inline object, and an identity dep
+    // would tear down and rebuild the whole scene on every parent render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [src, cell, color, crop.x, crop.y, crop.w, crop.h])
 
   return (
-    <div ref={wrapRef} className={className} aria-hidden="true">
+    <div ref={wrapRef} className={className} style={{ position: 'relative' }} aria-hidden="true">
       <canvas ref={canvasRef} />
     </div>
   )
